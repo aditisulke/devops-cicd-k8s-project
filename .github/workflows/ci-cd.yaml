@@ -22,3 +22,7 @@ jobs:
       run: |
         docker tag devops-app ${{ secrets.DOCKER_USERNAME }}/devops-app:latest
         docker push ${{ secrets.DOCKER_USERNAME }}/devops-app:latest
+
+    - name: Deploy with Helm
+      run: |
+       helm upgrade --install devops-release ./helm/devops-app
